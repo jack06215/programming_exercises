@@ -7,15 +7,19 @@
 
 int rottenOranges(std::vector<std::vector<int>>& oranges)
 {
-    enum state{ processed = -1, empty, fresh, rotten };
+    // this is what we want to calculate
     int time_elapsed = 0;
-    int total_fresh = 0;
 
+    // rows and cols of the fruit bucket
     int rows = oranges.size();
     int cols = oranges[0].size();
-    std::queue<std::pair<int, int>> bfs_queue;
+    
 
-    // count rotten
+    // count number of fresh oranges, if not then we are done
+    // also if rotton orange is found, add to queue and change its state to -1 (processed)
+    int total_fresh = 0;
+    enum state{ processed = -1, empty, fresh, rotten };
+    std::queue<std::pair<int, int>> bfs_queue;
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < cols; j++)
@@ -37,28 +41,39 @@ int rottenOranges(std::vector<std::vector<int>>& oranges)
     // bfs to rot all oranges, 1 minute for each iteration
     while (bfs_queue.size())
     {
+        // run 1 iteration of rotton process
         int queue_size = bfs_queue.size();
         for (int i = 0; i < queue_size; i++)
         {
+            // there is a rotton orange
             std::pair<int, int> next_rottenOrange = bfs_queue.front();
             bfs_queue.pop();
+            
+            // grab the location
             int row = next_rottenOrange.first;
             int col = next_rottenOrange.second;
             
-            // left, right, below, above
+            // now rotton left, right, below, above
             const std::vector<std::pair<int, int>> adj{{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
             for (auto adj_orange: adj)
             {
+                // rotton adjacent orange
                 int offset_row = row + adj_orange.first;
                 int offset_col = col + adj_orange.second;
+                
+                // boundary chek
                 if (offset_row >= 0 && offset_row < rows &&
                     offset_col >= 0 && offset_col < cols)
                 {
                     int& orange = oranges[offset_row][offset_col];
+                    
+                    // if the orange is already rotton or it is empty, skip it
                     if (orange == state::processed || orange == state::empty)
                         continue;
                     
-                    if (orange == state::fresh)
+                    // or if it is a fresh orange, it become rotton,
+                    // in which we should add to it to rotton list for next iteration
+                    else if (orange == state::fresh)
                     {
                         total_fresh = total_fresh - 1;
                         orange = state::rotten;
