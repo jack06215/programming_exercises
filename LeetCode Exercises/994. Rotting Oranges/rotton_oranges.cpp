@@ -5,14 +5,14 @@
 #include <iomanip> // std::setw()
 
 
-int rottenOranges(std::vector<std::vector<int>>& oranges)
+int rottenOranges(std::vector<std::vector<int>>& grid)
 {
     // this is what we want to calculate
     int time_elapsed = 0;
 
     // rows and cols of the fruit bucket
-    int rows = oranges.size();
-    int cols = oranges[0].size();
+    int rows = grid.size();
+    int cols = grid[0].size();
     
 
     // count number of fresh oranges, if not then we are done
@@ -24,7 +24,7 @@ int rottenOranges(std::vector<std::vector<int>>& oranges)
     {
         for (int j = 0; j < cols; j++)
         {
-            int& orange = oranges[i][j];
+            int& orange = grid[i][j];
             if (orange == state::fresh)
                 total_fresh++;
             
@@ -65,7 +65,7 @@ int rottenOranges(std::vector<std::vector<int>>& oranges)
                 if (offset_row >= 0 && offset_row < rows &&
                     offset_col >= 0 && offset_col < cols)
                 {
-                    int& orange = oranges[offset_row][offset_col];
+                    int& orange = grid[offset_row][offset_col];
                     
                     // if the orange is already rotton or it is empty, skip it
                     if (orange == state::processed || orange == state::empty)
@@ -83,7 +83,7 @@ int rottenOranges(std::vector<std::vector<int>>& oranges)
             }
         }
         time_elapsed = time_elapsed + 1;
-        for (auto vec: oranges)
+        for (auto vec: grid)
         {
             for (auto val: vec)
             {
