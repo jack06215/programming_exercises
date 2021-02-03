@@ -3,16 +3,16 @@
 #include <limits>
 #include <algorithm>
 
-int rodCut_resursive(const std::vector<int>& prices, int n_piece);
-int rodCut_dp(const std::vector<int>& prices, int n_piece);
+// int rodCut_resursive(const std::vector<int>& prices, int n_piece);
+// int rodCut_dp(const std::vector<int>& prices, int n_piece);
 
-int main()
-{
-    const std::vector<int> arr{1, 5, 8, 9, 10, 17, 17, 20};
-    std::cout << rodCut_dp(arr, arr.size());
+// int main()
+// {
+//     const std::vector<int> arr{1, 5, 8, 9, 10, 17, 17, 20};
+//     std::cout << rodCut_dp(arr, arr.size());
 
-    return 0;
-}
+//     return 0;
+// }
 
 int rodCut_resursive(const std::vector<int>& prices, int n_piece)
 {
