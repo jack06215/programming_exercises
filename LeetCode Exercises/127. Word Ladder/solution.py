@@ -43,9 +43,7 @@ solution = Solution()
 
 
 '''
-Input: beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log","cog"]
-Output: 5
-Explanation: One shortest transformation is "hit" -> "hot" -> "dot" -> "dog" -> "cog" with 5 words.
+"hit" -> "hot" -> "dot" -> "dog" -> "cog" with 5 words.
 '''
 beginWord = "hit"
 endWord = "cog"
