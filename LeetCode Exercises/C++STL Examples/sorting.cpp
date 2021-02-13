@@ -6,7 +6,7 @@
 #include <vector>
 #include "../prettyprint.h"
 
-template<class FwdIt, class Compare = std::less<>>
+template <class FwdIt, class Compare = std::less<>>
 void insertion_sort(FwdIt first, FwdIt last, Compare cmp = Compare{}) {
     for (auto it = first; it != last; ++it) {
         auto const insertion = std::upper_bound(first, it, *it, cmp);
@@ -14,7 +14,7 @@ void insertion_sort(FwdIt first, FwdIt last, Compare cmp = Compare{}) {
     }
 }
 
-template<class FwdIt, class Compare = std::less<>>
+template <class FwdIt, class Compare = std::less<>>
 void selection_sort(FwdIt first, FwdIt last, Compare cmp = Compare{}) {
     for (auto it = first; it != last; ++it) {
         auto const selection = std::min_element(it, last, cmp);
@@ -22,7 +22,7 @@ void selection_sort(FwdIt first, FwdIt last, Compare cmp = Compare{}) {
     }
 }
 
-template<class FwdIt, class Compare = std::less<>>
+template <class FwdIt, class Compare = std::less<>>
 void quick_sort(FwdIt first, FwdIt last, Compare cmp = Compare{}) {
 	auto const N = std::distance(first, last);
 	if (N <= 1)  return;
@@ -33,11 +33,17 @@ void quick_sort(FwdIt first, FwdIt last, Compare cmp = Compare{}) {
 }
 
 int main() {
-    std::vector<int> arr{4, 8, 6, -1, -2, -3, -1, 3, 4, 5};
-    // insertion_sort(begin(arr), end(arr));
-    // quick_sort(begin(arr), end(arr));
-    selection_sort(begin(arr), end(arr));
+    // std::vector<int> arr{4, 8, 6, -1, -2, -3, -1, 3, 4, 5};
+    // // insertion_sort(begin(arr), end(arr));
+    // // quick_sort(begin(arr), end(arr));
+    // selection_sort(begin(arr), end(arr));
 
-    std::cout << arr << std::endl;
+    // std::cout << arr << std::endl;
+
+    std::vector<int> v{5, 6, 4, 3, 2, 6, 7, 9, 3};
+ 
+    std::nth_element(v.begin(), v.begin() + v.size()/2, v.end());
+    std::cout << "The median is " << v[v.size()/2] << '\n';
+    std::cout << v << std::endl;
     return 0;
 }
