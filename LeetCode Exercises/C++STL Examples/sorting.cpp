@@ -25,25 +25,32 @@ void selection_sort(FwdIt first, FwdIt last, Compare cmp = Compare{}) {
 template <class FwdIt, class Compare = std::less<>>
 void quick_sort(FwdIt first, FwdIt last, Compare cmp = Compare{}) {
 	auto const N = std::distance(first, last);
-	if (N <= 1)  return;
+	if (N <= 1)  {
+        return;
+    }
 	auto const pivot = std::next(first, N / 2);
 	std::nth_element(first, pivot, last, cmp);
 	quick_sort(first, pivot, cmp);
 	quick_sort(pivot, last, cmp);
 }
 
+template<class BiDirIt, class Compare = std::less<>>
+void merge_sort(BiDirIt first, BiDirIt last, Compare cmp = Compare{}) {
+    auto const N = std::distance(first, last);
+    if (N > 1) {
+        auto const middle = std::next(first, N / 2);
+        merge_sort(first, middle, cmp);
+        merge_sort(middle, last, cmp);
+        std::inplace_merge(first, middle, last, cmp);
+    }
+}
+
 int main() {
-    // std::vector<int> arr{4, 8, 6, -1, -2, -3, -1, 3, 4, 5};
-    // // insertion_sort(begin(arr), end(arr));
-    // // quick_sort(begin(arr), end(arr));
+    std::vector<int> arr{4, 8, 6, -1, -2, -3, -1, 3, 4, 5};
+    // insertion_sort(begin(arr), end(arr));
+    quick_sort(begin(arr), end(arr));
     // selection_sort(begin(arr), end(arr));
-
-    // std::cout << arr << std::endl;
-
-    std::vector<int> v{5, 6, 4, 3, 2, 6, 7, 9, 3};
- 
-    std::nth_element(v.begin(), v.begin() + v.size()/2, v.end());
-    std::cout << "The median is " << v[v.size()/2] << '\n';
-    std::cout << v << std::endl;
+    // merge_sort(begin(arr), end(arr));
+    std::cout << arr << std::endl;
     return 0;
 }
