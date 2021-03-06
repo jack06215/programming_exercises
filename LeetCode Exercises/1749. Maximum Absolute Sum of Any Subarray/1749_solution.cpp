@@ -6,12 +6,11 @@
 class Solution {
 public:
     int maxAbsoluteSum(std::vector<int>& nums) {
-        int sum = 0;
-        int prefix_min = 0, prefix_max = 0;
+        int prefix_sum, prefix_min, prefix_max = 0;
         for (auto& val: nums) {
-            sum += val;
-            prefix_min = std::min(prefix_min, sum);
-            prefix_max = std::max(prefix_max, sum);
+            prefix_sum += val;
+            prefix_min = std::min(prefix_min, prefix_sum);
+            prefix_max = std::max(prefix_max, prefix_sum);
         }
         return prefix_max - prefix_min;
     }
