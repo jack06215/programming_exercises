@@ -1,4 +1,4 @@
-var maxProfit = function(prices) {
+﻿var maxProfit = function(prices) {
     let s0 = -prices[0];
     let s1 = 0;
     for (var i = 1; i < prices.length; i++) {

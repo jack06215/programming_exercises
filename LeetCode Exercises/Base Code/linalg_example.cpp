@@ -1,4 +1,4 @@
-#include "../linalg.h"
+﻿#include "../linalg.h"
 #include "../prettyprint.h"
 #include <vector>
 #include <iostream>
