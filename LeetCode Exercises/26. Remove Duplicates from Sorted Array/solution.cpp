@@ -23,8 +23,8 @@ int main() {
     Solution s;
     std::vector<int> nums;
 
-    nums = {2,3,3,3,6,9,9};
+    nums = {1,1,2};
     s.removeDuplicates(std::ref(nums));
-    std::cout << nums << std::endl;
+    std::cout << s.removeDuplicates(std::ref(nums)) << std::endl;
     return 0;
 }

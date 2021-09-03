@@ -24,7 +24,7 @@ public:
         size_t size = prices.size();
         int s0 = -prices[0];
         int s1 = 0;
-        for (size_t i = 1; i < size; ++i) {
+        for (size_t i = 1; i < size; i++) {
             s0 = std::max(s0, s1 - prices[i]);
             s1 = std::max(s1, s0 + prices[i]);
         }
