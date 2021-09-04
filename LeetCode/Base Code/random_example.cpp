@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include "../random.hpp"
 using Random = effolkronium::random_static;
 
