@@ -1,4 +1,4 @@
-#include <vector>
+﻿#include <vector>
 #include <iostream>
 #include <algorithm>
 #include "../prettyprint.h"
@@ -17,14 +17,18 @@ public:
     }
 };
 
-void rotate(std::vector<int>& v, int k) {
+class Solution_2 {
+public:
+	void rotate(std::vector<int>& v, int k) {
     std::rotate(v.rbegin(),                     // start
                 v.rbegin() + k % v.size(),      // new start element
                 v.rend());                      // end
-}
+	}	
+};
+
 
 int main() {
-    Solution s = Solution();
+    Solution_2 s = Solution_2();
     std::vector<int> input_seq;
 
     input_seq = {1,2,3,4,5,6,7};

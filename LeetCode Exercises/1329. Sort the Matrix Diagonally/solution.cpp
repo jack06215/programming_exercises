@@ -1,23 +1,26 @@
-#include <unordered_map>
+﻿#include <unordered_map>
 #include <vector>
 #include <queue>
 #include <iostream>
 #include "../prettyprint.h"
 
 using namespace std;
-
-using Matrix = std::vector<std::vector<int>>;
+using minpq = priority_queue<int, vector<int>, greater<int>>;
 
 class Solution {
 public:
     vector<vector<int>> diagonalSort(vector<vector<int>>& mat) {
-        int m = mat.size(), n = mat[0].size();
-        // all elements on same diagonal have same i-j result.
-        unordered_map<int, priority_queue<int, vector<int>, greater<int>>> map; // min priority queue
+        int m = mat.size();
+        int n = mat[0].size();
+        
+        // all elements on same diagonal have same i - j result.
+        unordered_map<int, minpq> map; // min priority queue
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 map[i - j].push(mat[i][j]);
+                std::cout << (i - j) << " ";
             }
+            std::cout << std::endl;
         }
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
