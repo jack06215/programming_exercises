@@ -80,6 +80,13 @@
         "xtree": "cpp",
         "xutility": "cpp",
         "bit": "cpp",
-        "clocale": "cpp"
+        "clocale": "cpp",
+        "*.tcc": "cpp",
+        "cwctype": "cpp",
+        "memory_resource": "cpp",
+        "string_view": "cpp",
+        "numbers": "cpp",
+        "semaphore": "cpp",
+        "stop_token": "cpp"
     }
 }
