@@ -1,3 +1,4 @@
 *.exe
-LeetCode Exercises/.vscode/*
+*.pdb
+.vscode/*
 LeetCode Exercises/useful_links..txt
