@@ -1,4 +1,4 @@
-#include <cstdint>
+﻿#include <cstdint>
 #include <iostream>
 
 using namespace std;
@@ -30,3 +30,9 @@ public:
         return result;
     }
 };
+
+int main() {
+	Solution s;
+	cout << s.mySqrt(500) << endl;
+	return 0;
+}
