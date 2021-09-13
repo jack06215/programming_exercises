@@ -13,18 +13,20 @@ public:
         uint64_t right = x;
         
         uint64_t result;
-        while (left <= right) {
+        while (left < right) {
             uint64_t mid = (left + right) / 2;
             uint64_t squared = mid * mid;
+            
             if (squared == x) {
                 return mid;
             }
-            else if (squared < x) {
-                left = mid + 1;
-                result = mid;
+            else if (squared >= x) {
+                
+                right = mid;
             }
             else {
-                right = mid - 1;
+                left = mid + 1;
+                result = mid;
             }
         }
         return result;
@@ -33,6 +35,6 @@ public:
 
 int main() {
 	Solution s;
-	cout << s.mySqrt(500) << endl;
+	cout << s.mySqrt(4) << endl;
 	return 0;
 }

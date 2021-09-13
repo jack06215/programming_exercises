@@ -20,8 +20,7 @@ public:
         
         while (left <= right) {
             int mid = (right + left) / 2;
-            int i = mid / n_cols;
-            int j = mid % n_cols;
+            auto [i, j] = to_2d_coordinate(mid, n_cols);
             
             if (matrix[i][j] == target) {
                 return true;
@@ -34,5 +33,9 @@ public:
             }
         }
         return false;
+    }
+private:
+    pair<int, int> to_2d_coordinate(int index, int stride) {
+        return { index / stride, index % stride };
     }
 };
