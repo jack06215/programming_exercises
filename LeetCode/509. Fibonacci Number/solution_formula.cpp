@@ -1,13 +1,14 @@
 #include <vector>
 #include <iostream>
 #include "../prettyprint.h"
+#include "../lib.h"
 
-using namespace std;
 using mat2d = std::vector<std::vector<int>>;
 
 class Solution {
 public:
     int fib(int n) {
+        if (n == 1) return 1;
         mat2d F = { { 1, 1 }, { 1, 0 } };
         if (n == 0)
             return 0;
@@ -54,6 +55,6 @@ public:
 
 int main() {
     Solution s;
-    cout << s.fib(32) << endl;
+    cout << s.fib(100) << endl;
     return 0;
 }

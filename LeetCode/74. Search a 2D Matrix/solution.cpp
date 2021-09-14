@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include "../prettyprint.h"
+#include "../codec.h"
 
 using namespace std;
 
@@ -20,7 +21,7 @@ public:
         
         while (left <= right) {
             int mid = (right + left) / 2;
-            auto [i, j] = to_2d_coordinate(mid, n_cols);
+            auto [i, j] = idx2loc(mid, n_cols);
             
             if (matrix[i][j] == target) {
                 return true;
@@ -35,7 +36,14 @@ public:
         return false;
     }
 private:
-    pair<int, int> to_2d_coordinate(int index, int stride) {
+    pair<int, int> idx2loc(int index, int stride) {
         return { index / stride, index % stride };
     }
 };
+
+int main() {
+    Solution s;
+    vector<vector<int>> matrix = read2DVectorFromString("[[1,3,5,7],[10,11,16,20],[23,30,34,60]]");
+    cout << s.searchMatrix(matrix, 3) << endl;
+    return 0;
+}

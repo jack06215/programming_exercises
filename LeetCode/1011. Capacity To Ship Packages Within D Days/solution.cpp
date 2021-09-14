@@ -6,7 +6,7 @@ using namespace std;
 
 class Solution {
 public:
-    int conveyDays(vector<int>& weights, int capacity){
+    int conveyDays(vector<int>& weights, int capacity) {
         int res = 0;
         int sum = 0;
         for(int i = 0; i < weights.size(); i++){
@@ -21,7 +21,8 @@ public:
     }
     
     int shipWithinDays(vector<int>& weights, int D) {
-        int left = -1, right = 0;
+        int left = -1;
+        int right = 0;
         for(int i = 0; i < weights.size(); i++){
             left = max(left, weights[i]);
             right += weights[i];
