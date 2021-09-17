@@ -15,14 +15,12 @@ public:
         while(left < right) {
             int mid = (left + right) / 2;
             int n_bags = 1;
-            for (int i = 0, sum = 0; i < nums.size(); i++) {
-                sum += nums[i + 1];
+            for (int i = 0, sum = 0; i < nums.size(); sum += nums[i++]) {
                 if (sum + nums[i] > mid) {
                     sum = 0;
                     n_bags++;
                 }
             }     
-            
             if (n_bags > m) { // bags are too small, 
                 left = mid + 1;
             }

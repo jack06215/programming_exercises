@@ -1,9 +1,9 @@
 #include <vector>
 #include <iostream>
 #include "../prettyprint.h"
-#include "../lib.h"
 
 using mat2d = std::vector<std::vector<int>>;
+using namespace std;
 
 class Solution {
 public:

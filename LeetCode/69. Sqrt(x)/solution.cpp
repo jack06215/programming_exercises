@@ -20,8 +20,7 @@ public:
             if (squared == x) {
                 return mid;
             }
-            else if (squared >= x) {
-                
+            else if (squared >= x) { 
                 right = mid;
             }
             else {
