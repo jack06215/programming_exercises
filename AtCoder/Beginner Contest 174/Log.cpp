@@ -11,7 +11,7 @@ double nums[200010]; 	// lengths of each log
 // a very small number
 float eps = numeric_limits<float>::epsilon();
 
-bool can(double len, int num_cuts) {
+bool is_doable_in_k_cut(double len, int num_cuts) {
 	int64_t res = 0;
 	for(int i = 0; i < n; ++i) {
 		// how many smaller logs can we cut
@@ -36,8 +36,8 @@ int main() {
 	
 	while(left < right - eps) {
 		double mid = left + (right - left) / 2;
-		// can we cut all logs such that its length is <= `mid` within `k` cuts
-		if(can(mid, k)) {
+		// can we cut all logs such that its length is <= `mid` in `k` cuts
+		if(is_doable_in_k_cut(mid, k)) {
 			right = mid;
 		}
 		else {
