@@ -20,6 +20,9 @@ public:
     }
 private:
     int binarySearch(vector<int>& arr, int target) {
+        if (arr.empty()) {
+            return -1;
+        }
         int left = 0;
         int right = arr.size() - 1;
         while (left <= right) {
