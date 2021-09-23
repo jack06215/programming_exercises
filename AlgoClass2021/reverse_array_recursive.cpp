@@ -18,7 +18,7 @@ swap 0 and 1: 2 3 4 5 1
 */
 
 
-void reverse_vector(int arr[], int size) {
+void reverse_vec_inplace(int* arr, int size) {
     if (size <= 1) {
         // nothing to be swapped
         return;
@@ -30,14 +30,23 @@ void reverse_vector(int arr[], int size) {
         // swap left most and right most
         arr[0] = arr[size - 1];
         arr[size - 1] = swap_val;
-        reverse_vector(&arr[1], size - 2);
+        reverse_vec_inplace(&arr[1], size - 2);
     }
 }
 
+vector<int> reverse_vec_resursive(vector<int> vec) {
+    if (vec.empty()) {
+        return {};
+    }
+    auto result = reverse_vec_resursive(vector<int>(cbegin(vec) + 1, cend(vec)));
+    result.emplace_back(vec[0]);
+    return result;
+}
+
 int main(int argc, char const *argv[]) {
-    vector<int> arr = {1,2,3,5};
+    vector<int> arr = { 1, 2, 3, 5 };
     cout << arr << endl;
-    reverse_vector(&arr[0], arr.size());
-    cout << arr << endl;
+    // reverse_vector(&arr[0], arr.size());
+    cout << reverse_vec_resursive(arr) << endl;
     return 0;
 }

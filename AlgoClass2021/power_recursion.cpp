@@ -9,10 +9,10 @@ int power(int value, int exponent) {
     else if (exponent == 1) return value;
     if (value == 0) return 0;
 
-    return (value * power(value, exponent - 1));
+    return value * power(value, exponent - 1);
 }
 
 int main(int argc, char const *argv[]) {
-    cout << power(3, 3) << endl;
+    cout << power(3, 9) << endl;
     return 0;
 }
