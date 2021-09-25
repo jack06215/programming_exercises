@@ -56,8 +56,7 @@ void merge_sort(BiDirIt first, BiDirIt last, Compare cmp = Compare{}) {
 }
 
 template<typename ForwardIterator>
-void counting_sort(ForwardIterator first, ForwardIterator last)
-{
+void counting_sort(ForwardIterator first, ForwardIterator last) {
     if (first == last || std::next(first) == last) return;
 
     auto minmax = std::minmax_element(first, last);  // avoid if possible.
