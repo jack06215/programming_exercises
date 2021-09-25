@@ -37,7 +37,7 @@ private:
         vector<int> prev_row = result[row - 1];
         
         // starting from index 1, we add up two numbers
-        for(int i = 1 ; i < row ; ++i){
+        for(int i = 1 ; i < row ; ++i) {
             int current = prev_row[i - 1] + prev_row[i];
             new_row.push_back(current);
         }
