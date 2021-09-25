@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 
 using namespace std;
 
@@ -21,7 +21,7 @@ public:
 
 int main(int argc, char const *argv[]) {
     TowerOfHanoi toh;
-    int n = 10;
+    int n = 3;
     toh.print_step(n, 'A', 'B', 'C');
     cout << toh.total_steps(n) << endl;
     return 0;
