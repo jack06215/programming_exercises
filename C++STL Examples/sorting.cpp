@@ -8,7 +8,7 @@
 
 #include <iostream>
 #include <vector>
-#include "../prettyprint.h"
+#include "prettyprint.h"
 
 const int kRangeFrom = -1000000;  // first of range for random number generator
 const int kRangeTo = 1000000;     // last of range for random number generator
@@ -32,6 +32,24 @@ void selection_sort(FwdIt first, FwdIt last, Compare cmp = Compare{}) {
     }
 }
 
+template<class It>
+std::pair<It, It> three_way_partition(It first, It last) {
+    assert(first != last);    
+    const auto pivot = *--last;
+
+    auto i = first, j = first, k = last;
+    while (j != k)
+        if (*j < pivot)
+            std::iter_swap(i++, j++);
+        else if (*j > pivot)
+            std::iter_swap(j, --k);
+        else
+            ++j;
+
+    std::iter_swap(j++, last);
+    return {i, j};
+}
+
 template <class FwdIt, class Compare = std::less<>>
 void quick_sort(FwdIt first, FwdIt last, Compare cmp = Compare{}) {
 	auto const N = std::distance(first, last);
@@ -43,6 +61,31 @@ void quick_sort(FwdIt first, FwdIt last, Compare cmp = Compare{}) {
 	quick_sort(first, pivot, cmp);
 	quick_sort(pivot, last, cmp);
 }
+
+template <class FwdIt>
+void quick_sort_three_way(FwdIt first, FwdIt last) {
+	auto const N = std::distance(first, last);
+	if (N <= 1)  {
+        return;
+    }
+	const auto p = three_way_partition(first, last);
+	quick_sort_three_way(first, p.first);
+	quick_sort_three_way(p.second, last);
+}
+
+template<class It, class Gen>
+void randomized_quick_sort(It first, It last, Gen&& gen) {
+    if (last - first <= 1)
+        return;
+
+    std::uniform_int_distribution<std::ptrdiff_t> dist(0, last - first - 1);
+    std::iter_swap(first + dist(gen), last - 1);
+    
+    const auto p = three_way_partition(first, last);
+    randomized_quick_sort(first, p.first, gen);
+    randomized_quick_sort(p.second, last, gen);
+}
+
 
 template<class BiDirIt, class Compare = std::less<>>
 void merge_sort(BiDirIt first, BiDirIt last, Compare cmp = Compare{}) {
@@ -109,17 +152,21 @@ int main() {
     std::vector<int> arr(kSize);
     std::generate(arr.begin(), arr.end(), [&](){ return dist(mt); });
     
-    counting_sort(arr.begin(), arr.end());
+    // counting_sort(arr.begin(), arr.end());
     
-    heap_sort(arr.begin(), arr.end());
+    // heap_sort(arr.begin(), arr.end());
     
-    insertion_sort(begin(arr), end(arr));
+    // insertion_sort(begin(arr), end(arr));
     
-    quick_sort(begin(arr), end(arr));
+    // quick_sort(begin(arr), end(arr));
     
-    selection_sort(begin(arr), end(arr));
+    // selection_sort(begin(arr), end(arr));
     
-    merge_sort(begin(arr), end(arr));
+    // merge_sort(begin(arr), end(arr));
+    
+    randomized_quick_sort(begin(arr), end(arr), std::mt19937{});
+
+    // quick_sort_three_way(begin(arr), end(arr));
     
     std::cout << std::is_sorted(arr.begin(), arr.end()) << std::endl;
     return 0;
