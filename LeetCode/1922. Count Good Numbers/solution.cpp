@@ -4,7 +4,7 @@ using namespace std;
 
 class Solution {
 public:
-    long long modpow(long long base, long long exp, long long modulus){
+    long long modpow(long long base, long long exp, long long modulus) {
         long long result = 1;
         while (exp > 0) {
             if (exp & 1) { // odd exponent
