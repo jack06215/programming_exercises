@@ -6,6 +6,36 @@ using namespace std;
 
 template<typename T> void _R(T &x) { cin >> x; }
 
+// template <class T>
+// inline void hash_combine(std::size_t & seed, const T & v) {
+//     std::hash<T> hasher;
+//     seed ^= hasher(v) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
+// }
+
+// template<typename S, typename T> struct pair_hash<std::pair<S, T>> {
+//     inline std::size_t operator()(const std::pair<S, T> & v) const {
+//          std::size_t seed = 0;
+//          hash_combine(seed, v.first);
+//          hash_combine(seed, v.second);
+//          return seed;
+//     }
+// };
+
+// struct Hash {
+//     size_t operator()(const vec2d& x) const {
+//         return hash<long long>()(((long long)x.first)^(((long long)x.second) << 32));
+//     }
+// };
+
+// template <class T> struct MyHash;
+// template<> struct MyHash<std::string> {
+//     std::size_t operator()(std::string const& s) const noexcept
+//     {
+//         size_t seed = static_cast<size_t>(0xdeadbeef);
+//         return MurmurHash2 ( s.data(), s.length(), seed );
+//     }
+// };
+
 template<typename T>
 string vectorToString(vector<T> v){
 	auto i = v.begin();
@@ -86,6 +116,24 @@ vector<vector<int>> read2DVector() {
 vector<vector<int>> read2DVectorFromString(string str_vector) {
     istringstream oss(str_vector);
     cin.rdbuf(oss.rdbuf());
-    vector<vector<int>> ans = read2DVector();
+
+    vector<vector<int>> ans;
+	int i = 0;
+    cin.get(); // outer [
+    while (cin.peek() != ']') {
+        cin.get(); // inner [
+        if (ans.size() <= i) ans.emplace_back();
+        int k = 0;
+        while (cin.peek() != ']') {
+            int n;
+            cin >> n;
+            ans[i].push_back(n);
+            if (cin.peek() == ',') cin.get();
+        }
+        cin.get(); // inner ]
+        if (cin.peek() == ',') cin.get();
+        ++i;
+    }
+    cin.get(); // outer ]
     return ans;
 }
