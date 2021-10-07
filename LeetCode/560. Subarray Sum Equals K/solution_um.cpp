@@ -9,6 +9,7 @@ class Solution {
 public:
     int subarraySum(vector<int>& nums, int k) {
         // dictionary to keep the counting of prefix sum (running sum)
+        // (sum, counter)
         // running sum = 0 when nothing is added, i.e. {0, 1}
         unordered_map<int, int> mp{{0, 1}};
         int res{0}, sum{0};

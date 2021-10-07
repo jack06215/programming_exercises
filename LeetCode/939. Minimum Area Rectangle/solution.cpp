@@ -29,8 +29,8 @@ public:
         for (int j = i + 1; j < sz; ++j) {
             // grab two points (x0, y0), (x1, y1)
             // assuming it's top-left and bottom-right
-            int x0{points[i][0]}, y0{points[i][1]};
-            int x1{points[j][0]}, y1{points[j][1]};
+            int x0{ points[i][0] }, y0{ points[i][1] };
+            int x1{ points[j][0] }, y1{ points[j][1] };
             
             // we cannot form rectangle when two points are 
             // aligned either vertically or horizontally

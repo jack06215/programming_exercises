@@ -3,6 +3,8 @@
 #include <algorithm>
 #include "../prettyprint.h"
 
+using namespace std;
+
 class Solution {
 public:
     void swap(int left, int right, std::vector<char>& s) {
@@ -34,6 +36,18 @@ class Solution3 {
 public:
     void reverseString(std::vector<char>& s) {
         return std::reverse(s.begin(), s.end());
+    }
+};
+
+class Solution5 {
+public:
+    void reverseString(vector<char>& s) {
+        if (s.size() == 1) return;
+        int head = 0;
+        int tail = s.size() - 1;
+        while (head < tail) {
+            swap(s[head++], s[tail--]);
+        }
     }
 };
 
