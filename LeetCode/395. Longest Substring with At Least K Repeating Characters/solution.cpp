@@ -16,19 +16,25 @@ public:
                 
                 if(P[s[j] - 'a'] < k) continue;
                 
+                cout << P << endl;
                 if(check(&P[0], k)) {
                     ans = max(ans, j - i + 1);
                 }
             }
-            cout << P << endl;
         }
         return ans;
     }
 private:
     const int CHAR_SIZE = 26;
     bool check(int arr[], int k){
-        for(int i = 0; i < CHAR_SIZE; i++)
-            if(arr[i] != 0 && arr[i] < k) return false;
+        for(int i = 0; i < CHAR_SIZE; i++){
+            cout << arr[i] << " ";
+            if(arr[i] != 0 && arr[i] < k) {
+                return false;
+                cout << endl;
+            }
+        }
+        cout << endl;
         return true;
     }
 };
