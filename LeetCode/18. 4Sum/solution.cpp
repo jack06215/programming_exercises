@@ -35,7 +35,7 @@ public:
     }
 };
 
-class Solution {
+class Solution2 {
 public:
     void findNSum(vector<int>& nums, int target, int NSum, int left_n, vector<int> two_sum_res, vector<vector<int>> &res){
         // 1. not enough nums for NSum
