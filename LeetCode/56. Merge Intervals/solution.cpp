@@ -18,8 +18,9 @@ public:
             return intervals;
         }
         vector<vector<int>> res;
-        sort(intervals.begin(), intervals.end(), [](auto a, auto b){ return a[1] < b[1]; });
-        cout << intervals << endl;
+        sort(intervals.begin(), 
+             intervals.end(), 
+             [](auto a, auto b){ return a[1] < b[1]; });
         for (auto& interval: intervals) {
             int left = interval[0];
             int right = interval[1];
