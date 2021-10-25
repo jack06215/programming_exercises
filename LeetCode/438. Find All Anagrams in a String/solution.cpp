@@ -14,9 +14,9 @@ public:
         for (const auto ch : p) {
             lookup[ch]++;
         }
-        int len = s.size();
+        int size = s.size();
         int windowSize = p.size();
-        for (int head = 0, tail = 0; tail < len; tail++) {
+        for (int head = 0, tail = 0; tail < size; tail++) {
             ++map[s[tail]];
             if (tail - head == windowSize) {
                 --map[s[head]];
