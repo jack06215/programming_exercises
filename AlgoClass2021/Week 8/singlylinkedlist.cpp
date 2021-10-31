@@ -16,7 +16,7 @@ public:
         tmp->val = val;
         tmp->next = this->head;
         this->head = tmp;
-        head = tmp;
+        head = tmp; 
     }
 
     void insert_back(int val) {
