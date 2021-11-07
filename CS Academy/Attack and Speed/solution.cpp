@@ -12,18 +12,14 @@ void read() {
 }
 
 int calc(int gem) {
-    int newA = (A + gem * X);
-    int newS = (S + (K - gem) * Y);
-    return newA - newS;
+    return (A + gem * X) - (S + (K - gem) * Y);
 }
 
 void solve() {
     int left = 0;
     int right = K + 1;
     while (left < right) {
-        // using 'mid' gem, can we make it balance?
         int mid = left + (right - left) / 2;
-        // by balance, we mean the target value is 0
         int target = calc(mid);
         if (target == 0) {
             cout << mid;
