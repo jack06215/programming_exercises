@@ -13,6 +13,9 @@
         "xutility": "cpp",
         "iostream": "cpp",
         "iterator": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "forward_list": "cpp",
+        "functional": "cpp",
+        "xlocale": "cpp"
     }
 }
