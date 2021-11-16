@@ -16,6 +16,7 @@
         "utility": "cpp",
         "forward_list": "cpp",
         "functional": "cpp",
-        "xlocale": "cpp"
+        "xlocale": "cpp",
+        "ios": "cpp"
     }
 }
