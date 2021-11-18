@@ -1,34 +1,19 @@
-#ifndef LIST_NODE_H
-#define LIST_NODE_H
+#include <iostream>
 
-template <typename T> 
-class List;
+using namespace std;
 
-template <typename T>
-class ListNode //nodes to be contained with a list
-{
-	friend class List<T>;
-
-public:
-	ListNode(T);
-	T getData();
-
-private:
-	T data; //templatized data stored in node
-	ListNode* nextPtr; //pointer to the next node in list
+struct ListNode {
+    int val;
+    ListNode* next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode* next) : val(x), next(next) {}
+    void print() {
+        auto curr = next;
+        while (curr != nullptr) {
+            cout << curr->val << ' ';
+            curr = curr->next;
+        }
+        cout << endl;
+    }
 };
-
-template <typename T>
-ListNode<T>::ListNode(T dataIn)
-{
-	data = dataIn; //stores data in node
-	nextPtr = 0; //initializes point to next node to null
-}
-
-template <typename T>
-T ListNode<T>::getData() //returns data stored in node
-{
-	return data;
-}
-
-#endif
