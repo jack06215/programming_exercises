@@ -1,0 +1,8 @@
+{
+    "apiKey": "ABC",
+    "secret": "123",
+    "pairs:": [
+        ["XRP","BTC"],
+        {"base": "ETH", "quote": "BTC" }
+    ]
+}

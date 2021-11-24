@@ -8,12 +8,10 @@
 using namespace std;
 
 /*
-
-The first part loop on routes and record stop to routes mapping in to_route.
-The second part is general bfs. Take a stop from queue and find all connected route.
-The hashset seen record all visited stops and we won't check a stop for twice.
-We can also use a hashset to record all visited routes, or just clear a route after visit.
-
+    The first part loop on routes and record stop to routes mapping in to_route.
+    The second part is general bfs. Take a stop from queue and find all connected route.
+    The hashset seen record all visited stops and we won't check a stop for twice.
+    We can also use a hashset to record all visited routes, or just clear a route after visit.
 */
 
 class Solution {
@@ -30,7 +28,7 @@ public:
         bfs.push({ source, 0 });
         unordered_set<int> seen = { source };
         while (!bfs.empty()) {
-            int stop = bfs.front().first, 
+            int stop = bfs.front().first;
             int bus = bfs.front().second;
             bfs.pop();
             if (stop == target) {
