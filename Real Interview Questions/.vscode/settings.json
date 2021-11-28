@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "compare": "cpp",
+        "tuple": "cpp",
+        "xlocnum": "cpp",
+        "xutility": "cpp",
+        "vector": "cpp",
+        "set": "cpp"
+    }
+}

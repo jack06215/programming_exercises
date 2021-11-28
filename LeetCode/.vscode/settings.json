@@ -17,6 +17,7 @@
         "forward_list": "cpp",
         "functional": "cpp",
         "xlocale": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "chrono": "cpp"
     }
 }
