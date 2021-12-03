@@ -18,6 +18,7 @@
         "functional": "cpp",
         "xlocale": "cpp",
         "ios": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "queue": "cpp"
     }
 }
