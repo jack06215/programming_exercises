@@ -11,11 +11,11 @@ class Solution {
 public:
     int orangesRotting(vector<vector<int>>& grid) {
         int res = 0;
-        
+
         int rows = grid.size();
         int cols = grid[0].size();
         enum state { processed = -1, empty, fresh, rotten };
-        
+
         int total_fresh = 0;
         queue<pair<int, int>> bfs;
         for (int i = 0; i < rows; i++) {
