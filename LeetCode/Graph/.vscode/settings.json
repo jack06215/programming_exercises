@@ -7,6 +7,8 @@
         "deque": "cpp",
         "memory": "cpp",
         "system_error": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "tuple": "cpp",
+        "iostream": "cpp"
     }
 }
