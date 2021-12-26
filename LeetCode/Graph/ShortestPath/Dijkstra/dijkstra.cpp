@@ -7,7 +7,6 @@
 
 using namespace std;
 
-
 class Solution {
 public:
     void dijkstra(int start, int n_edges, vector<vector<pair<int, int>>>& edges) {
@@ -30,10 +29,10 @@ public:
             dst[node] = distance;
 
             // [next node, next distance]
-            for (auto [nn, nd] : edges[node]) {
-                // found shorter route
-                if (distance + nd < dst[nn]) {
-                    pq.push({ distance + nd, nn });
+            for (auto [next_node, next_distance] : edges[node]) {
+                // if there is a shorter route
+                if (distance + next_distance < dst[next_node]) {
+                    pq.push({ distance + next_distance, next_node });
                 }
             }
         }

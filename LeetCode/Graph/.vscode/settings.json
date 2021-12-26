@@ -9,6 +9,7 @@
         "system_error": "cpp",
         "xutility": "cpp",
         "tuple": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "unordered_map": "cpp"
     }
 }
