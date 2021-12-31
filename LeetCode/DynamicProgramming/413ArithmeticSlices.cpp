@@ -14,12 +14,14 @@ public:
             return 0;
         }
         vector<int> dp(len, 0);
+        int res = dp[2];
         for (int i = 2; i < len; i++) {
             if (nums[i] - nums[i - 1] == nums[i - 1] - nums[i - 2]) {
                 dp[i] = dp[i - 1] + 1;
             }
+            res += dp[i];
         }
-        int res =  accumulate(begin(dp), end(dp), 0);
+        cout << dp << endl;
         return res;
     }
 };
