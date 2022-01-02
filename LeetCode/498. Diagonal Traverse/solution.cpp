@@ -12,16 +12,17 @@ public:
     vector<int> findDiagonalOrder(vector<vector<int>>& matrix) {
         vector<int> res;
         map<int, vector<int>> mp;
-        
-        for(int i = 0 ; i < matrix.size() ; i++) 
-            for(int j = 0 ; j < matrix[0].size() ; j++)
+
+        for (int i = 0; i < matrix.size(); i++) {
+            for (int j = 0; j < matrix[0].size(); j++) {
                 mp[i + j].push_back(matrix[i][j]);
-        std::cout << mp << std::endl;
-        for(auto i: mp) {
-            if((i.first) % 2 == 0) 
-                reverse(i.second.begin(), i.second.end()); 
-            
-            for(auto k: i.second) {
+            }
+        }
+        for (auto [i, vec] : mp) {
+            if (i % 2 == 0) {
+                reverse(vec.begin(), vec.end());
+            }
+            for (auto k : vec) {
                 res.push_back(k);
             }
         }
