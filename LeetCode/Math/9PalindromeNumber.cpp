@@ -16,7 +16,7 @@ public:
     }
 };
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char const* argv[]) {
     Solution s;
     cout << s.isPalindrome(125) << endl;
     return 0;

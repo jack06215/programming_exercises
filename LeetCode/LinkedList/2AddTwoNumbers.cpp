@@ -11,13 +11,13 @@ public:
             return nullptr;
         }
         int sum = (l1 ? l1->val : 0) + (l2 ? l2->val : 0);
-        
+
         // store LSD
         ListNode* newHead = new ListNode(sum % 10);
-        
+
         // carry bit
         sum /= 10;
-        
+
         // add carry
         ListNode* next1 = l1 ? l1->next : nullptr;
         if (next1) {
@@ -33,7 +33,3 @@ public:
         return newHead;
     }
 };
-
-int main(int argc, char const *argv[]) {
-    return 0;
-}
