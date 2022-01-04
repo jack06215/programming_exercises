@@ -1,7 +1,7 @@
 #include <vector>
 #include <stack>
 #include <iostream>
-#include "../prettyprint.h"
+#include "../../prettyprint.h"
 
 using namespace std;
 
@@ -10,16 +10,16 @@ public:
     vector<int> nextGreaterElements(vector<int>& nums) {
         int n = nums.size();
         vector<int> ans(n, 0);
-        stack<int> s;
+        stack<int> stk;
         for (int i = n - 1; i >= 0; i--) {
-            s.push(nums[i]);
+            stk.push(nums[i]);
         }
         
         for (int i = n - 1; i >= 0; i--) {
-            while (!s.empty() && nums[i] >= s.top()) s.pop();
-            if (s.empty()) ans[i] = -1;
-            else ans[i] = s.top();
-            s.push(nums[i]);
+            while (!stk.empty() && nums[i] >= stk.top()) stk.pop();
+            if (stk.empty()) ans[i] = -1;
+            else ans[i] = stk.top();
+            stk.push(nums[i]);
         }
         return ans;
     }
