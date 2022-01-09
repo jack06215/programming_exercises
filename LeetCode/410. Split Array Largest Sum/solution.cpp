@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <numeric>
+#include <limits>
 
 using namespace std;
 
@@ -36,7 +37,7 @@ class Solution {
 public:
     int splitArray(vector<int>& nums, int m) {
         int left = 0;
-        int right = accumulate(nums.begin(), nums.end(), 1);
+        int right = 1e7;
         for (auto num: nums) {
             left = max(left, num);
         }
