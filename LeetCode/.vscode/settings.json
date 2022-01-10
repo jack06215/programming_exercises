@@ -20,6 +20,7 @@
         "ios": "cpp",
         "chrono": "cpp",
         "queue": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "limits": "cpp"
     }
 }
