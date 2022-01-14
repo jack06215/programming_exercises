@@ -3,6 +3,13 @@
 
 using namespace std;
 
+/*
+given N=3 and K=7
+
+at the 1st level: [1, 2, 3, 4, 5, 7, 8, 9]
+at the 2nd level: [18, 29, 70, 81, 92]
+at the 3rd level: [181, 292, 707, 818, 929]
+*/
 class Solution {
     const int MAX_N = 9;
     const int MAX_K = 9;
