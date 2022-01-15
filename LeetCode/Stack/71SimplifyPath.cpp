@@ -2,7 +2,6 @@
 #include <string>
 #include <sstream>
 #include <vector>
-#include <stack>
 #include "../prettyprint.h"
 
 
@@ -11,15 +10,19 @@ using namespace std;
 class Solution {
 public:
     string simplifyPath(string path) {
-        string result{""}, token{};
+        string res;
         istringstream tokenizer(path);
+
         vector<string> dir;
+        string token;
         while (getline(tokenizer, token, '/')) {
+            cout << dir << endl;
             // no change
-            if (token == "." || token == "") continue;
-            // back to parent directory
+            if (token == "." || token == "") {
+                continue;
+            }
+            // back to parent directory, skip if it's already root directory
             else if (token == "..") {
-                // skip if it's already root directory
                 if (!dir.empty()) {
                     dir.pop_back();
                 }
@@ -30,18 +33,21 @@ public:
             }
         }
         // root directory
-        if (dir.empty()) return "/";
-        
+        if (dir.empty()) {
+            return "/";
+        }
+
         // make conanical directory
-        for (const auto& it: dir) result += '/' + it;
-        return result;
+        for (const auto& it : dir) {
+            res += '/' + it;
+        }
+        return res;
     }
 };
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char const* argv[]) {
     string input = "/a/../../b/../c//.//";
-    Solution s;
-    cout << s.simplifyPath(input) << endl;
+    cout << Solution().simplifyPath(input) << endl;
     return 0;
 }
 
