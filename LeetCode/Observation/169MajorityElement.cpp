@@ -17,7 +17,7 @@ public:
             if (num == candidate) {
                 count++;
             }
-            // // majority count - 1
+            // majority count - 1
             else {
                 count--;
             }
