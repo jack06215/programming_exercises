@@ -3,6 +3,14 @@
 
 using namespace std;
 
+/*
+    Input: nums = [3,2,3]
+    Output: 3
+
+    Input: nums = [2,2,1,1,1,2,2]
+    Output: 2
+*/
+
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
@@ -21,10 +29,11 @@ private:
         int ml = majorityElement(nums, left, mid);
         int mr = majorityElement(nums, mid + 1, right);
 
-        // return majority element
+        // majority from both side are the same
         if (ml == mr) {
             return ml;
         }
+        // ...are different, then we need to count and return the majority
         auto start = begin(nums) + left;
         auto end = begin(nums) + right + 1;
         return count(start, end, ml) > count(start, end, mr) ? ml : mr;
