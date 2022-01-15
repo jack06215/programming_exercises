@@ -1,20 +1,18 @@
-#include <vector>
+#define CATCH_CONFIG_MAIN
+#include "../catch.hpp"
 #include <iostream>
-#include "../prettyprint.h"
-
-using namespace std;
+#include <vector>
 
 class Solution {
 public:
     int tribonacci(int n) {
         if (n == 0) {
-            return 0;
+            return n;
         }
-        else if (n == 1 || n == 2) {
-            return 1;
-        }
-        vector<int> dp(n + 1, 0);
-        dp[0] = 0, dp[1] = 1, dp[2] = 1;
+        std::vector<int> dp(n + 1, 0);
+        dp[0] = 0;
+        dp[1] = 1;
+        dp[2] = 1;
         for (int i = 3; i <= n; i++) {
             dp[i] = dp[i - 1] + dp[i - 2] + dp[i - 3];
         }
@@ -22,8 +20,7 @@ public:
     }
 };
 
-int main() {
-    cout << Solution().tribonacci(0) << endl;
-
-    return 0;
+TEST_CASE("1137. N-th Tribonacci Number", "[tribonacci]") {
+    REQUIRE((Solution().tribonacci(4) == 4));
+    REQUIRE((Solution().tribonacci(25) == 1389537));
 }

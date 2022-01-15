@@ -3,17 +3,17 @@
 
 using namespace std;
 
-class FenwickTree{
+class FenwickTree {
 public:
-    FenwickTree(int n): bit(n + 1, 0) {}
-    
+    FenwickTree(int n) : bit(n + 1, 0) {}
+
     void update(int i, int val) {
         while (i < bit.size()) {
             bit[i] = bit[i] + val;
             i = i + lowbit(i);
         }
     }
-    
+
     int query(int i) {
         int ans = 0;
         while (i > 0) {
@@ -35,21 +35,21 @@ public:
         int n = nums.size();
         int minn = *min_element(nums.begin(), nums.end());
         int maxx = *max_element(nums.begin(), nums.end());
-        
+
         // to make every element positive, and 1-indexed
         FenwickTree tree(maxx - minn + 1);
-        
+
         // traverse from behind
         vector<int> count(n);
-        for(int i = n - 1; i >= 0; i--) {
-            
+        for (int i = n - 1; i >= 0; i--) {
+
             // we want only smaller so subtract m[nums[i]] (count of current element)
             count[i] = tree.query(nums[i] - minn);
-            
+
             // update fenwick tree (increase freq of element by 1)
             tree.update(nums[i] - minn + 1, 1);
         }
-        
+
         return count;
     }
 };
