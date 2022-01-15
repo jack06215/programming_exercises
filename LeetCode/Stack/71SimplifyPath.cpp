@@ -45,6 +45,31 @@ public:
     }
 };
 
+class Solution {
+public:
+    string simplifyPath(string path) {
+        string res;
+        string token;
+        vector<string> stk;
+        istringstream ss(path);
+        while (getline(ss, token, '/')) {
+            if (token == "" || token == ".") {
+                continue;
+            }
+            if (token == ".." && !stk.empty()) {
+                stk.pop_back();
+            }
+            else if (token != "..") {
+                stk.push_back(token);
+            }
+        }
+        for (auto str : stk) {
+            res += "/" + str;
+        }
+        return res.empty() ? "/" : res;
+    }
+};
+
 int main(int argc, char const* argv[]) {
     string input = "/a/../../b/../c//.//";
     cout << Solution().simplifyPath(input) << endl;
