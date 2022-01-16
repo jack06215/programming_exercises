@@ -16,7 +16,7 @@ public:
             counter[s[i] - 'a']++;
         }
 
-        // check if substring are all the same, if yes then return the length of substring
+        // check if substring contains same characters, if yes then return the length of substring
         int flag = 1;
         for (int i = 0; i < 26; i++) {
             if (counter[i] > 0 && counter[i] < k) {
