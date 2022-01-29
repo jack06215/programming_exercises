@@ -1,0 +1,40 @@
+#include <vector>
+#include <iostream>
+#include "../prettyprint.h"
+
+using namespace std;
+
+class Solution {
+    vector<vector<int>> dp;
+public:
+    int helper(int begin, int end) {
+        if (begin > end) {
+            return 1;
+        }
+
+        if (dp[begin][end] != -1) {
+            return dp[begin][end];
+        }
+
+        int res = 0;
+        for (int i = begin; i <= end; i++) {
+            int left = helper(begin, i - 1);
+            int right = helper(i + 1, end);
+            res += left * right;
+        }
+        dp[begin][end] = res;
+        return dp[begin][end];
+    }
+
+    int numTrees(int n) {
+        dp.resize(n + 1, vector<int>(n + 1, -1));
+        int res = helper(0, n - 1);
+        cout << dp << endl;
+        return res;
+    }
+};
+
+int main(void) {
+    cout << Solution().numTrees(5) << endl;
+    return 0;
+}
