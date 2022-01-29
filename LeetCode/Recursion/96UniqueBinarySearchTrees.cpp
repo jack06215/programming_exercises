@@ -34,6 +34,35 @@ public:
     }
 };
 
+class Solution {
+    vector<int> dp;
+public:
+    int helper(int n) {
+        if (n == 0) {
+            return 1;
+        }
+        if (n == 1 || n == 2) {
+            return n;
+        }
+        if (dp[n] != -1) {
+            return dp[n];
+        }
+
+        int res = 0;
+        for (int i = 1; i <= n; i++) {
+            res += helper(i - 1) * helper(n - i);
+        }
+        dp[n] = res;
+        cout << dp << endl;
+        return dp[n];
+    }
+    int numTrees(int n) {
+        dp.resize(n + 1, -1);
+        dp[n] = helper(n);
+        return dp[n];
+    }
+};
+
 int main(void) {
     cout << Solution().numTrees(5) << endl;
     return 0;
