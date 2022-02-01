@@ -10,23 +10,22 @@ vector<int> inputs;
 class Solution {
 public:
     vector<vector<int>> subsets(vector<int>& nums) {
-        subsets(nums, 0);
+        vector<vector<int>> res;
+        dfs(nums, 0, vector<int>(), res);
         return res;
     }
 private:
-    vector<vector<int>> res;
-    vector<int> candidate;
-    void subsets(vector<int>& nums, int begin) {
+    void dfs(vector<int>& nums, int begin, vector<int>&& candidate, vector<vector<int>>& res) {
         res.push_back(candidate);
         for (int i = begin; i < nums.size(); i++) {
             candidate.push_back(nums[i]);
-            subsets(nums, i + 1);
+            dfs(nums, i + 1, move(candidate), res);
             candidate.pop_back();
         }
     }
 };
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char const* argv[]) {
     inputs = stringToIntVector("[1,2,2]");
     cout << Solution().subsets(inputs) << endl;
     return 0;
