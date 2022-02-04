@@ -65,6 +65,8 @@
         "xtree": "cpp",
         "xutility": "cpp",
         "array": "cpp",
-        "forward_list": "cpp"
+        "forward_list": "cpp",
+        "charconv": "cpp",
+        "random": "cpp"
     }
 }
