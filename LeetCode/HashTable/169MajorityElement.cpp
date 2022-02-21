@@ -11,9 +11,10 @@ public:
         for (auto val : nums) {
             freq_count[val]++;
         }
-        auto most_freq = std::max_element(
-            freq_count.begin(), freq_count.end(),
-            [](const auto& x, const auto& y) { return x.second < y.second; });
+        auto most_freq = max_element(freq_count.begin(), freq_count.end(),
+            [](const auto& x, const auto& y) {
+                return x.second < y.second;
+            });
         return most_freq->first;
     }
 };
