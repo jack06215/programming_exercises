@@ -15,10 +15,7 @@ public:
                 stk.push(ch);
             }
             else {
-                if (stk.empty() ||
-                    (stk.top() == '(' && ch != ')') ||
-                    (stk.top() == '[' && ch != ']') ||
-                    (stk.top() == '{' && ch != '}')) {
+                if (stk.empty() || (stk.top() == '(' && ch != ')') || (stk.top() == '[' && ch != ']') || (stk.top() == '{' && ch != '}')) {
                     return false;
                 }
                 stk.pop();

@@ -1,28 +1,29 @@
-#include <vector>
 #include <queue>
+#include <vector>
 
 using namespace std;
 
 class Solution {
 public:
     int countStudents(vector<int>& students, vector<int>& sandwiches) {
-        queue q(deque<int>(students.begin(), students.end()));
+        queue que(deque<int>(students.begin(), students.end()));
         int index = 0;
         int count = 0;
-        while (!q.empty()) {
-            int current = q.front(); q.pop();
+        while (!que.empty()) {
+            int current = que.front(); que.pop();
             if (current != sandwiches[index]) {
+                que.push(current);
                 count++;
-                q.push(current);
             }
             else {
                 count = 0;
                 index++;
             }
-            if (count == q.size()) {
+
+            if (count == que.size()) {
                 break;
             }
         }
-        return q.size();
+        return que.size();
     }
 };
