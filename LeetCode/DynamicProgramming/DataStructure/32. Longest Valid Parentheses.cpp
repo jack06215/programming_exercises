@@ -2,7 +2,7 @@
 #include <vector>
 #include <stack>
 #include <iostream>
-#include "../prettyprint.h"
+#include "../../prettyprint.h"
 
 using namespace std;
 
