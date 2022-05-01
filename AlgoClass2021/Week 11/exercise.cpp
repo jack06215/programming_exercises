@@ -4,6 +4,8 @@
 
 using namespace std;
 
+vector<vector<int>> res;
+
 void backtrack_not_good(int n, vector<int>& nums) {
     cout << nums << endl;
     if (n >= 2) {
@@ -49,6 +51,7 @@ void backtrack(int n, vector<int>& nums) {
 void backtrack_with_loop(int n, vector<int>& nums) {
     cout << nums << endl;
     if (n >= 2) {
+        res.push_back(nums);
         return;
     }
     for (int i = 1; i < 3; i++) {
@@ -60,9 +63,8 @@ void backtrack_with_loop(int n, vector<int>& nums) {
 
 int main() {
     vector<int> vec;
-    vector<vector<int>> res;
-    // combs(0, vec, res);
     backtrack_with_loop(0, vec);
+    cout << res << endl;
     // recursion(0);
     return 0;
 }
