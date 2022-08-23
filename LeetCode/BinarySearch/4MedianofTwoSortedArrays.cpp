@@ -5,37 +5,36 @@ using namespace std;
 class Solution {
 public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-        // size of num1 and num2 respectively
-        int n = nums1.size();
-        int m = nums2.size();
+        const int num1_len = nums1.size();
+        const int num2_len = nums2.size();
+        const int len = num1_len + num2_len;
+        const int mid = len / 2;
 
         // iterator for nums1 and num2 respectively
-        int j = 0;
-        int k = 0;
+        int iter1 = 0;
+        int iter2 = 0;
 
         // current and previous value respectively
         int x = 0;
         int y = 0;
 
-        // begin the loop of binart search as if the both arrays were mergerd and sorted
+        // begin the loop of binary search as if the both arrays were mergerd and sorted
         // as soon as the pointer reaches the middle, exit the loop.
         int i = 0;
-        while (i <= ((n + m) / 2)) {
+        while (i <= mid) {
             y = x;
-            // store whichever is smaller in var x from both array, then increment 1 step
-            // if (k >= m) , then nums2 is finished so we loop through the remaining nums1
-            //   until nums1 also finished, i.e. (j < n)
-            if (k >= m || (j < n && nums1[j] < nums2[k])) {
-                x = nums1[j++];
+            if (iter2 >= num2_len || (iter1 < num1_len && nums1[iter1] < nums2[iter2])) {
+                x = nums1[iter1++];
             }
             else {
-                x = nums2[k++];
+                x = nums2[iter2++];
             }
             i++;
         }
         // odd length return x, even return the average of x and y
-        if ((n + m) % 2 == 0)
-            return (double)(x + y) / 2;
-        return (double)x;
+        if (len % 2 == 0) {
+            return (x + y) / 2.0;
+        }
+        return static_cast<double>(x);
     }
 };
