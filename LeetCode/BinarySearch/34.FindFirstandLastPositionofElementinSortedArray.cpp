@@ -21,7 +21,9 @@ private:
             }
         }
 
-        if (left == nums.size() || nums[left] != target) return -1;
+        if (left == nums.size() || nums[left] != target) {
+            return -1;
+        }
         return left;
     }
 
@@ -40,7 +42,9 @@ private:
 
         // left points to the first element this is greater than target.
         --left;
-        if (left < 0 || nums[left] != target) return -1;
+        if (left < 0 || nums[left] != target) {
+            return -1;
+        }
         return left;
     }
 };
