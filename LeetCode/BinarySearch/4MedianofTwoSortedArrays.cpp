@@ -38,3 +38,39 @@ public:
         return static_cast<double>(x);
     }
 };
+
+
+class Solution {
+public:
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        // size of num1 and num2 respectively
+        int n = nums1.size();
+        int m = nums2.size();
+        vector<int> ans;
+
+        // iterator for nums1 and num2 respectively
+        int j = 0;
+        int k = 0;
+
+        // current and previous value respectively
+        int x = 0;
+        int y = 0;
+
+        // as soon as pointer reaches (m + n)/2, exit the loop.
+        int i = 0;
+        while (i <= ((n + m) / 2)) {
+            y = x;
+            //       ||  as long as nums1 has smaller value
+            if (k >= m || (j < n && nums1[j] < nums2[k])) {
+                x = nums1[j++];
+            }
+            else {
+                x = nums2[k++];
+            }
+            i++;
+        }
+        if ((n + m) % 2 == 0)
+            return (double)(x + y) / 2;
+        return (double)x;
+    }
+};
