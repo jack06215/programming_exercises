@@ -10,8 +10,7 @@ void printBoundary(vector<vector<int>>& arr, int rows, int cols) {
                 cout << arr[i][j] << " ";
             }
             else {
-                cout << " "
-                    << " ";
+                cout << "* ";
             }
         }
         cout << endl;

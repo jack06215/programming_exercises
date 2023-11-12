@@ -63,7 +63,7 @@ public:
                 if (row >= 0 && row < m && col >= 0 && col < n && !visited[row][col]) {
                     Height next(heightMap[row][col], row, col);
 
-                    // If water can be trapped (when height of this new element is less than the current weakest link) 
+                    // If water can be trapped (when height of this new element is less than the current weakest link)
                     if (next.h < top.h) {
                         water += top.h - next.h;
                         next.h = max(next.h, top.h);

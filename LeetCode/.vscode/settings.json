@@ -69,6 +69,7 @@
         "charconv": "cpp",
         "random": "cpp",
         "chrono": "cpp",
-        "format": "cpp"
+        "format": "cpp",
+        "span": "cpp"
     }
 }

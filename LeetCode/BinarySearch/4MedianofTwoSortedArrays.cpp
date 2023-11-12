@@ -24,10 +24,12 @@ public:
         while (i <= mid) {
             y = x;
             if (iter2 >= num2_len || (iter1 < num1_len && nums1[iter1] < nums2[iter2])) {
-                x = nums1[iter1++];
+                x = nums1[iter1];
+                iter1++;
             }
             else {
-                x = nums2[iter2++];
+                x = nums2[iter2];
+                iter2++;
             }
             i++;
         }

@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include "../codec.h"
 
 using namespace std;
 
@@ -12,7 +13,7 @@ public:
         const int stride = matrix[0].size();
         auto get_index = [&](int index) -> pair<int, int> {
             return { index / stride, index % stride };
-        };
+            };
 
         while (left < right) {
             int mid = (right + left) / 2;
@@ -31,3 +32,10 @@ public:
         return false;
     }
 };
+
+int main() {
+    auto matrix = read2DVectorFromString("[[1,3,5,7],[10,11,16,20],[23,30,34,60]]");
+    auto solution = Solution();
+    cout << boolalpha << solution.searchMatrix(matrix, 3) << endl;
+    return 0;
+}

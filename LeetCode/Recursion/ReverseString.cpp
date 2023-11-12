@@ -23,7 +23,7 @@ void solve() {
     reverseString(&s[0], s.size());
 }
 
-int main(int argc, char* argv) {
+int main(int argc, char* argv[]) {
     read();
     solve();
     cout << s << endl;

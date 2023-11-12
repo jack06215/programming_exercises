@@ -40,7 +40,7 @@ private:
             }
         }
 
-        // left points to the first element this is greater than target.
+        // left points to the first element greater than target.
         --left;
         if (left < 0 || nums[left] != target) {
             return -1;

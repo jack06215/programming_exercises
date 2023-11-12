@@ -1,23 +1,21 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#include <set>
 
 using namespace std;
 
 class Solution {
-public:
-    vector<vector<int>> threeSum(vector<int>& nums)
-    {
-        vector<vector<int> > res;
+public: 
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        vector<vector<int>> res;
         sort(nums.begin(), nums.end());
         for (int i = 0; i < nums.size(); i++) {
-            // two consecutive elements must be unuqie to avoid duplicated answer
-            int j = i + 1;
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
 
-            // k is always starts from the end
+            int j = i + 1;
             int k = nums.size() - 1;
             while (j < k) {
                 // great! we found an answer
@@ -42,11 +40,39 @@ public:
                     j++;
                 }
 
-                else if (nums[i] + nums[j] + nums[k] > 0) {
+                else {
                     k--;
                 }
             }
         }
         return res;
+    }
+};
+
+class Solution2 {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        int len = nums.size();
+
+        // At least three elemnets needed for a triplet
+        if (len == 0 || len < 3) {
+            return {};
+        }
+
+        set<vector<int>> s;
+        sort(nums.begin(), nums.end());
+        for (int i = 0; i < len - 2; i++) {
+            for (int j = i + 1; j < len - 1; j++) {
+                for (int k = j + 1; k < len; k++) {
+                    if (nums[i] + nums[j] + nums[k] == 0) {
+                        s.insert({ nums[i], nums[j], nums[k] });
+                    }
+                }
+            }
+        }
+
+        // Insert all unique triplets in result vector
+        vector<vector<int>> ans(s.begin(), s.end());
+        return ans;
     }
 };

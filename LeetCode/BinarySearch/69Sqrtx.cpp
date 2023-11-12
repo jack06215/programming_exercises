@@ -1,4 +1,5 @@
 #include <cstdint>
+#include <iostream>
 
 using namespace std;
 
@@ -12,12 +13,12 @@ public:
             return 1;
         }
 
-        int left = 1;
-        int right = x;
+        uint64_t left = 1;
+        uint64_t right = x;
 
         while (left < right) {
-            int mid = left + (right - left) / 2;
-            int squared = mid * mid;
+            uint64_t mid = left + (right - left) / 2;
+            uint64_t squared = mid * mid;
             if (squared == x) {
                 return mid;
             }
@@ -31,3 +32,9 @@ public:
         return left - 1;
     }
 };
+
+int main() {
+    auto s = Solution();
+    cout << s.mySqrt(2147395599) << endl;
+    return 0;
+}

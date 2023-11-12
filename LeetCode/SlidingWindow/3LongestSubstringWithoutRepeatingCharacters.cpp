@@ -12,7 +12,7 @@ public:
         int tail = 0;
         int ans = 0;
         while (head < n && tail < n) {
-            // character does not in the set 
+            // character does not in the set
             if (set.find(s[tail]) == set.end()) {
                 set.insert(s[tail++]);            // insert the character in set, and update head pointer
                 ans = max(ans, tail - head);      // check if the new distance is longer than the current answer

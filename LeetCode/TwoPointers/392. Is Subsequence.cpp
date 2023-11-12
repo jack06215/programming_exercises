@@ -5,17 +5,17 @@ using namespace std;
 class Solution {
 public:
     bool isSubsequence(string s, string t) {
-        int sz_s = s.size();
-        int sz_t = t.size();
+        int len_s = s.size();
+        int len_t = t.size();
 
-        int i = 0;
-        int j = 0;
-        while (i < sz_s && j < sz_t) {
-            if (s[i] == t[j]) {
-                i++;
+        int iter_s = 0;
+        int iter_t = 0;
+        while (iter_s < len_s && iter_t < len_t) {
+            if (s[iter_s] == t[iter_t]) {
+                iter_s++;
             }
-            j++;
+            iter_t++;
         }
-        return i == sz_s ? true : false;
+        return iter_s == len_s ? true : false;
     }
 };
