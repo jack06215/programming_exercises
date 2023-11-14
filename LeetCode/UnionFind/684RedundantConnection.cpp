@@ -23,9 +23,9 @@ public:
         if (pu == pv) {
             return false;
         }
-        
+
         // Union by larger size
-        if (size[pu] > size[pv]) { 
+        if (size[pu] > size[pv]) {
             size[pu] += size[pv];
             parent[pv] = pu;
         }

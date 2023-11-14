@@ -32,7 +32,7 @@ public:
             // 0, 1, 2, ..., 59, 60, 61, 62
             // 0, 1, 2, ..., 59,  0,  1, 2
             int m_time = time[i] % 60;
-            
+
             int bin = 60 - m_time;
             if (mp[bin] > 0) {
                 ans += mp[bin];

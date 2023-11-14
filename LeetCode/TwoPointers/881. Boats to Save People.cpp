@@ -7,7 +7,7 @@ public:
     int numRescueBoats(std::vector<int>& people, int limit) {
         int result = 0;
         std::sort(people.begin(), people.end());
-        
+
         // two pointer strategy
         int current = 0;
         int tail = people.size() - 1;
