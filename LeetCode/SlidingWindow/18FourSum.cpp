@@ -84,7 +84,7 @@ public:
             return {{}};
         }
 
-        set<vector<int>> unique_ans; 
+        set<vector<int>> unique_ans;
         vector<vector<int>> ans;
         sort(nums.begin(), nums.end());
         for(int a = 0; a < n - 3; a++) { // range [0:n-3]
