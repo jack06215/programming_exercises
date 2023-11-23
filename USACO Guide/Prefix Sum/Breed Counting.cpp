@@ -28,13 +28,16 @@ public:
         // Reading cow breeds and updating prefix sums
         for (int i = 1; i <= N; i++) {
             int breed = breeds[i];
+
+            // Update all bread count previous to i
             for (int j = 1; j <= 3; ++j) {
                 prefixSum[j][i] = prefixSum[j][i - 1];
             }
+
+            // Update breed count for i
             prefixSum[breed][i]++;
-            cout << prefixSum << endl;
         }
-        
+
 
         // Processing queries
         for (int i = 0; i < Q; i++) {
