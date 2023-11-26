@@ -31,37 +31,26 @@ public:
 };
 
 class Solution {
-    unordered_map<Node*, Node*> map;
+    unordered_map<Node*, Node*> node_lookup;
 public:
     Node* copyRandomList(Node* head) {
         if (!head) {
-            return head;
-        }
-        Node* iter = head;
-
-        Node* newHead = nullptr;
-        Node* newTail = nullptr;
-        while (iter != nullptr) {
-            if (newHead == nullptr) {
-                newHead = new Node(iter->val);
-                newTail = newHead;
-            }
-            else {
-                newTail->next = new Node(iter->val);
-                newTail = newTail->next;
-            }
-            map[iter] = newTail;
-            iter = iter->next;
+            return nullptr;
         }
 
-
-        iter = newHead;
-        while (iter != nullptr) {
-            iter->random = map[head->random];
-            head = head->next;
-            iter = iter->next;
+        Node* curr = head;
+        while (curr) {
+            node_lookup[curr] = new Node(curr->val);
+            curr = curr->next;
         }
-        return newHead;
 
+        curr = head;
+        while (curr) {
+            node_lookup[curr]->next = node_lookup[curr->next];
+            node_lookup[curr]->random = node_lookup[curr->random];
+            curr = curr->next;
+        }
+
+        return node_lookup[head];
     }
 };
