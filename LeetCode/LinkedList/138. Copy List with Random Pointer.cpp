@@ -19,14 +19,16 @@ public:
             return head;
         }
         // Modifying the input list:
-        Node* temp = head, * ptr = head;
+        Node* temp = head;
+
+        Node* ptr = head;
         while (ptr) {
             temp = ptr->next;
             ptr->next = new Node(ptr->val);
             ptr->next->next = temp;
             ptr = temp;
         }
-        // List Updated to: [7]-[copy7]->[13]->[copy13]... 
+        // List Updated to: [7]-[copy7]->[13]->[copy13]...
 
         //  Updating the random pointers
         ptr = head;

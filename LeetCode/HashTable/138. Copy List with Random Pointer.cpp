@@ -1,3 +1,7 @@
+#include <unordered_map>
+
+using namespace std;
+
 class Node {
 public:
     int val;
@@ -10,9 +14,6 @@ public:
         random = nullptr;
     }
 };
-
-#include <unordered_map>
-using namespace std;
 
 class Solution {
     unordered_map<Node*, Node*> map;
@@ -36,8 +37,8 @@ public:
         if (!head) {
             return head;
         }
-        Node* iter = head;        
-        
+        Node* iter = head;
+
         Node* newHead = nullptr;
         Node* newTail = nullptr;
         while (iter != nullptr) {
