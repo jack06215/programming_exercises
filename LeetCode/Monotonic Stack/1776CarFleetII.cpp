@@ -46,7 +46,7 @@ public:
                     }
                 }
             }
-            // add i-th car, 
+            // add i-th car,
             car_on_right.push_back(i);
         }
 

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include "prettyprint.h"
 
 using namespace std;
 
@@ -30,6 +31,8 @@ public:
     for (int i = 1; i <= N; ++i) {
       prefix_sum[i] = prefix_sum[i - 1] + A[i];
     }
+
+    cout << prefix_sum << endl;
 
     for (int i = 0; i < Q; ++i) {
       auto [L, R] = range[i];

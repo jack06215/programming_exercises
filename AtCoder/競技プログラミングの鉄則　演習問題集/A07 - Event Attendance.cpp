@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "../../prettyprint.h"
+#include "prettyprint.h"
 
 using namespace std;
 
@@ -56,10 +56,13 @@ public:
     for (int i = 0; i < N; ++i) {
       changes[L[i]] += 1;
       changes[R[i] + 1] -= 1;
+      cout << changes << endl;
     }
+
     for (int i = 1; i <= D; ++i) {
       changes[i] += changes[i - 1];
     }
+
     for (int i = 1; i <= D; ++i) {
       cout << changes[i] << endl;
     }
