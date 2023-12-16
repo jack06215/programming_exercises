@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <tuple>
-#include "../../prettyprint.h"
+#include "prettyprint.h"
 
 using namespace std;
 
@@ -25,7 +25,7 @@ public:
         for (int i = 0; i < Q; ++i) {
             int x1, y1, x2, y2;
             cin >> x1 >> y1 >> x2 >> y2;
-            points[i] = make_tuple(x1, y1, x2, y2);
+            points[i] = { x1, y1, x2, y2 };
         }
     }
 
