@@ -43,7 +43,7 @@ int main () {
 
     input = "236";
     std::cout << s.letterCombination(input) << std::endl;
-    
+
     input = "24";
     std::cout << s.letterCombination(input) << std::endl;
 
