@@ -9,25 +9,25 @@ using namespace std;
 class Solution {
 public:
     int countPalindromicSubsequence(string s) {
-        int n = s.size();
         int ans = 0;
-        vector<pair<int, int>> m(26, pair<int, int>({ 1e9, -1e9 }));
+        vector<pair<int, int>> lookup(26, pair<int, int>({ 1e9, -1e9 }));
 
-        for (int i = 0; i < n; i++) {
-            m[s[i] - 'a'].first = min(m[s[i] - 'a'].first, i);
-            m[s[i] - 'a'].second = max(m[s[i] - 'a'].second, i);
+        for (int i = 0; i < s.size(); i++) {
+            lookup[s[i] - 'a'].first = min(lookup[s[i] - 'a'].first, i);
+            lookup[s[i] - 'a'].second = max(lookup[s[i] - 'a'].second, i);
         }
 
-        cout << m << endl;
+        cout << lookup << endl;
 
-        for (auto i : m) {
-            int l = i.first;
-            int r = i.second;
-            if (l == 1e9) {
+        for (auto iter : lookup) {
+            int left, right;
+            tie(left, right) = iter;
+            if (left == 1e9) {
                 continue;
             }
+            // count pattern XYX, where X is the same character at both ends and Y can be any character.
             unordered_set<char> st;
-            for (int j = l + 1; j < r; j++) {
+            for (int j = left + 1; j < right; j++) {
                 st.insert(s[j]);
             }
             ans += st.size();
