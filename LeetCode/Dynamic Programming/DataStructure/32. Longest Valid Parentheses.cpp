@@ -8,7 +8,7 @@ using namespace std;
 
 /*
     Iterate through the string and
-    - if we get s[i] == "(" then store it’s index ink 
+    - if we get s[i] == "(" then store it’s index ink
     - if we get s[i] == ")" and stack is empty means this closing parenthesis will not be part of any valid substring
     - if the stack is not empty then we store length of current substring in
         dp[i] = dp[stack[-1] - 1] + dp[i - 1] + 1
@@ -24,7 +24,7 @@ using namespace std;
       So while i = 3 is making pair with i = 2 , we are checking dp at i = 1 because
       we want to get longest valid substring so if there is any substring till i = 1 which is also valid we will add that also.
 
-    - Then we move to index 4 and stack is not empty so we will check for dp[stack[-1] – 1] e 
+    - Then we move to index 4 and stack is not empty so we will check for dp[stack[-1] – 1] e
       stack[-1] = 1 because i = 4 is making pair with i = 1 so top of stack will be 1.
         dp[4] = dp[3] + dp[0] + 1
 
