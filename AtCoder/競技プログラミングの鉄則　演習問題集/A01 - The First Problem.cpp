@@ -4,19 +4,19 @@ using namespace std;
 
 class Solution {
 private:
-  int n;
+    int n;
 public:
-  Solution() {
-    cin >> n;
-  }
+    Solution() {
+        cin >> n;
+    }
 
-  void solve() {
-    cout << n * n << endl;
-  }
+    void solve() {
+        cout << n * n << endl;
+    }
 };
 
 int main() {
-  auto s = Solution();
-  s.solve();
-  return 0;
+    auto s = Solution();
+    s.solve();
+    return 0;
 }

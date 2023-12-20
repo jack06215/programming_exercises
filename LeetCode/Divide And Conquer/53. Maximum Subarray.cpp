@@ -28,7 +28,7 @@ public:
             return arr[left];
         }
 
-        // divide the the original problem into two equal parts: 
+        // divide the the original problem into two equal parts:
         // [0, n - 1] -> [0, mid] & [mid + 1, n - 1]
         // so the longest subarray must be in either [0, mid] or [mid, n - 1]
         int mid = left + (right - left) / 2;

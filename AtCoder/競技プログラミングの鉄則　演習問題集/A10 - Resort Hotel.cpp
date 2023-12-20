@@ -60,13 +60,13 @@ public:
             For our example, the suffix maximum array would be:
                 Rooms:        1   2   3   4   5   6   7
                 Suffix Max:   5   5   5   5   3   3   1
-            
+
             Explanation:
                 From room 7 to the end (just room 7), the largest capacity is 1.
                 From room 6 to the end (rooms 6 and 7), the largest capacity is 3.
                 From room 5 to the end (rooms 5, 6, and 7), the largest capacity is 3, and so on.
 
-         * 
+         *
          */
         suffixMax[N] = A[N];
         for (int i = N - 1; i >= 1; --i) {
@@ -75,9 +75,9 @@ public:
 
         /**
          * @brief Query Processing
-         * 
+         *
          * Let's use the same room capacity example as before:
-         * 
+         *
          *  Rooms:        1   2   3   4   5   6   7
             Capacities:   1   2   5   5   2   3   1
             Prefix Max:   1   2   5   5   5   5   5
@@ -93,7 +93,7 @@ public:
             Max in 6 - 7:  3  (from Suffix Max)
 
             Result: Max of (2, 3) = 3
-         * 
+         *
          */
         for (int i = 0; i < D; i++) {
             int left = L[i];
