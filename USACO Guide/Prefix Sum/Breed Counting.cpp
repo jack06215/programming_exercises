@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "../../prettyprint.h"
+#include "../prettyprint.h"
 
 using namespace std;
 

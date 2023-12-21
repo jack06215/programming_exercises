@@ -33,7 +33,7 @@ public:
         vector<vector<int>> prefix_sum(H + 1, vector<int>(W + 1, 0));
         for (int i = 1; i <= H; ++i) {
             for (int j = 1; j <= W; ++j) {
-                prefix_sum[i][j] = grid[i][j] + prefix_sum[i - 1][j] + prefix_sum[i][j - 1] - prefix_sum[i - 1][j - 1];
+                prefix_sum[i][j] = prefix_sum[i - 1][j] + prefix_sum[i][j - 1] - prefix_sum[i - 1][j - 1] + grid[i][j];
             }
         }
         cout << prefix_sum << endl;
