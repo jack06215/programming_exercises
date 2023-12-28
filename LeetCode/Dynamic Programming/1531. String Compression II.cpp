@@ -48,8 +48,8 @@ public:
                     continue;
                 }
                 // For every Chararter we have 2 options
-                // we don't keep it in compressed string (Case 1) or
-                // we keep it (Case 2)
+                // Case 1: we don't keep it in compressed string
+                // Case 2: we keep it
 
                 // Case 1
                 // we assign the previously calculated substring - i.e. dp[i+1][j-1] th cell
