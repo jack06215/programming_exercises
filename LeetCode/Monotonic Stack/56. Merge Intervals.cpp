@@ -12,14 +12,15 @@ public:
             return intervals;
         }
         vector<vector<int>> res;
-        sort(intervals.begin(), intervals.end(), [](auto a, auto b) { return a[1] < b[1]; });
+        sort(intervals.begin(), intervals.end(), [](auto lhs, auto rhs) { return lhs[1] < rhs[1]; });
         for (auto& interval : intervals) {
-            int left = interval[0], right = interval[1];
-            while (!res.empty() && left <= res.back()[1]) {
-                left = min(left, res.back()[0]);
+            int start = interval[0];
+            int end = interval[1];
+            while (!res.empty() && start <= res.back()[1]) {
+                start = min(start, res.back()[0]);
                 res.pop_back();
             }
-            res.push_back({ left, right });
+            res.push_back({ start, end });
         }
         return res;
     }
