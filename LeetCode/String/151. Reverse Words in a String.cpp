@@ -8,17 +8,6 @@ using namespace std;
 class Solution {
 private:
     string trimWhitespaces(const string& s) {
-        auto start = s.begin();
-        auto end = s.end();
-        while (start != s.end() && isspace(*start)) {
-            start++;
-        }
-        while (distance(start, end) > 0 && isspace(*(end - 1))) {
-            end--;
-        }
-        return string(start, end);
-    }
-    string trimWhitespaces2(const string& s) {
         int i = 0;
         int j = s.size() - 1;
         while (i <= j && s[i] == ' ') {
@@ -29,10 +18,31 @@ private:
         }
         return s.substr(i, j - i + 1);
     }
+    string trimWhitespaces2(const string& s) {
+        auto start = s.begin();
+        auto end = s.end();
+        while (start != s.end() && isspace(*start)) {
+            start++;
+        }
+        while (distance(start, end) > 0 && isspace(*(end - 1))) {
+            end--;
+        }
+        return string(start, end);
+    }
+
+    string trimWhitespaces3(const string& str) {
+        const auto i = str.find_first_not_of(' ');
+        if (i == string::npos) {
+            return "";
+        }
+
+        const auto j = str.find_last_not_of(' ');
+        return str.substr(i, j - i + 1);
+    }
 public:
     string reverseWords(string s) {
         // trim the input string to remove leading and trailing spaces
-        s = trimWhitespaces(s);
+        s = trimWhitespaces3(s);
 
         // Split the trimmed string into words based on spaces
         vector<string> words;                // Create a vector to store words
