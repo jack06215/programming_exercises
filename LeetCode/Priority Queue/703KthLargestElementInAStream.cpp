@@ -7,7 +7,7 @@ using namespace std;
 
 class KthLargest {
 public:
-    KthLargest(int k, vector<int>& nums): k(k) {
+    KthLargest(int k, vector<int>& nums) : k(k) {
         for (int i = 0; i < nums.size(); i++) {
             pq.push(nums[i]);
             if (pq.size() > k) {
@@ -15,7 +15,7 @@ public:
             }
         }
     }
-    
+
     int add(int val) {
         pq.push(val);
         while (pq.size() > k) {

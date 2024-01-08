@@ -1,4 +1,4 @@
-#include "../binarytree.h"
+#include "binarytree.h"
 #include "../prettyprint.h"
 
 class Solution {
