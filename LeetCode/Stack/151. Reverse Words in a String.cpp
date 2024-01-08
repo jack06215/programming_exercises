@@ -10,9 +10,11 @@ public:
         string res;
         for (int i = 0; i < s.size(); i++) {
             string word;
+            // skip white spaces
             if (s[i] == ' ') {
                 continue;
             }
+
             // store continuous letters into word
             while (i < s.size() && s[i] != ' ') {
                 word += s[i];
@@ -20,6 +22,7 @@ public:
             }
             stk.push(word);
         }
+
         while (!stk.empty()) {
             res += stk.top();
             stk.pop();
