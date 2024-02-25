@@ -1,5 +1,7 @@
 {
   "files.associations": {
-    "ios": "cpp"
+    "*.xml": "xml",
+    "ios": "cpp",
+    "vector": "cpp"
   }
 }

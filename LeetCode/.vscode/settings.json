@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "*.xml": "xml",
         "algorithm": "cpp",
         "atomic": "cpp",
         "bit": "cpp",
@@ -71,6 +72,11 @@
         "chrono": "cpp",
         "format": "cpp",
         "span": "cpp",
-        "ranges": "cpp"
+        "ranges": "cpp",
+        "locale": "cpp",
+        "optional": "cpp",
+        "ratio": "cpp",
+        "xlocbuf": "cpp",
+        "xlocmes": "cpp"
     }
 }
