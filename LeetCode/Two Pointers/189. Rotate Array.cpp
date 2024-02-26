@@ -22,6 +22,27 @@ public:
     }
 };
 
+class Solution3 {
+public:
+    void rotate(vector<int>& nums, int k) {
+        helper(nums, k % nums.size(), 0);    
+    }
+private:
+    void helper(vector<int>& nums, int k, int start) {
+        if (start == nums.size() - 1) {
+            return;
+        }
+        k = k % (nums.size() - start);
+        if (!k) {
+            return;
+        }
+        for (int i = start, j = nums.size() - k; j < nums.size(); ++i, ++j) {
+            swap(nums[i], nums[j]);
+        }
+        helper(nums, k, start + k);
+    }
+};
+
 class Solution {
     // private:
     //     void reverse(vector<int>& nums, int i, int j) {
