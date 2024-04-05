@@ -53,27 +53,27 @@ using namespace std;
 
 */
 
-class Solution {
-public:
-    vector<string> dial = { "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
+// class Solution {
+// public:
+//     vector<string> dial = { "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
 
-    vector<string> letterCombinations(string digits) {
-        if (digits.empty()) return {};
-        vector<string> result;
-        result.push_back("");
+//     vector<string> letterCombinations(string digits) {
+//         if (digits.empty()) return {};
+//         vector<string> result;
+//         result.push_back("");
 
-        for (auto digit : digits) {
-            vector<string> tmp;
-            for (auto candidate : dial[digit - '0']) {
-                for (auto s : result) {
-                    tmp.push_back(s + candidate);
-                }
-            }
-            result.swap(tmp);
-        }
-        return result;
-    }
-};
+//         for (auto digit : digits) {
+//             vector<string> tmp;
+//             for (auto candidate : dial[digit - '0']) {
+//                 for (auto s : result) {
+//                     tmp.push_back(s + candidate);
+//                 }
+//             }
+//             result.swap(tmp);
+//         }
+//         return result;
+//     }
+// };
 
 class Solution {
 public:
@@ -84,40 +84,64 @@ public:
             return {};
         }
 
-        list<string> q;
+        queue<string> que;
         vector<string> ans;
 
-        q.push_back("");
-        while (!q.empty()) {
-            string curr = q.front();
-            q.pop_front();
+        que.push("");
+        while (!que.empty()) {
+            string curr = que.front();
+            que.pop();
 
             if (curr.length() == digits.length()) {
                 ans.push_back(curr);
             }
+
             else {
                 string s = dial[digits[curr.length()] - '0'];
                 for (auto x : s) {
-                    q.push_back(curr + x);
+                    que.push(curr + x);
                 }
             }
-
         }
         return ans;
     }
 };
 
+// class Solution {
+// public:
+//     vector<string> dial = { "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
+
+//     vector<string> letterCombinations(string digits) {
+//         vector<string> ans;
+//         if (digits.empty()) return ans;
+//         backtrack(digits, 0, "", ans);
+//         return ans;
+//     }
+
+//     void backtrack(const string& digits, int index, string current, vector<string>& ans) {
+//         if (index == digits.length()) {
+//             ans.push_back(current);
+//             return;
+//         }
+
+//         string letters = dial[digits[index] - '0'];
+//         for (char letter : letters) {
+//             backtrack(digits, index + 1, current + letter, ans);
+//         }
+//     }
+// };
+
 int main() {
     Solution s = Solution();
     string input;
 
-    input = "236";
+    input = "23456";
     std::cout << s.letterCombinations(input) << std::endl;
 
-    input = "24";
-    std::cout << s.letterCombinations(input) << std::endl;
+    // input = "53382633";
+    // std::cout << s.letterCombinations(input) << std::endl;
 
-    input = "2";
-    std::cout << s.letterCombinations(input) << std::endl;
+    // input = "2";
+    // std::cout << s.letterCombinations(input) << std::endl;
     return 0;
 }
