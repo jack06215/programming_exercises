@@ -10,7 +10,7 @@ public:
             return false;
         }
 
-        std::unordered_map<char, int> counts;
+        unordered_map<char, int> counts;
 
         // Count characters in the first string
         for (char c : s) {
