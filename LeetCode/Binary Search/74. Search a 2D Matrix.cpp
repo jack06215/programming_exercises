@@ -4,6 +4,36 @@
 
 using namespace std;
 
+class Solution2 {
+private:
+    int stride;
+    pair<int, int> getMatIndex(int index) {
+        return { index / stride, index % stride };
+    }
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int left = 0;
+        int right = matrix.size() * matrix[0].size();
+
+        stride = matrix[0].size();
+
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            auto [i, j] = getMatIndex(mid);
+            if (matrix[i][j] == target) {
+                return true;
+            }
+            else if (matrix[i][j] > target) {
+                right = mid;
+            }
+            else {
+                left = mid + 1;
+            }
+        }
+        return false;
+    }
+};
+
 class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
