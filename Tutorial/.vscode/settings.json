@@ -1,6 +1,7 @@
 {
   "files.associations": {
     "*.xml": "xml",
-    "ostream": "cpp"
+    "ostream": "cpp",
+    "limits": "cpp"
   }
 }
